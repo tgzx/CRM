@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class MainBanco {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String enderecoIP = "192.168.1.9"; // Endereco do servidor (SQL) [localhost ou ip] pode ser alterado em "pg_hba.conf"
+        String enderecoIP = "192.168.1.9"; // Endereco do servidor (SQL) [localhost ou ip] pode ser alterado em "pg_hba.conf" meu hamachi 25.38.77.29 / meu ip 192.168.1.9
         boolean loop = false;
         BaseFunctions.TesteConexao(enderecoIP);
         System.out.println("Selecione uma das opções abaixo: ");

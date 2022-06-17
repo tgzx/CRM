@@ -4,8 +4,28 @@ import java.sql.*;
 import java.util.Scanner;
 
 public class SQLFuncao {
+    public static Connection conexao = null;
     public static Connection ComandoConectarBanco (String enderecoIP) throws  SQLException{
-        Connection conexao = null;
+        if (conexao != null){
+            return conexao;
+        }
+
+        // *********************************************** MYSQL *******************************************************
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conexao = DriverManager.getConnection("jdbc:mysql://" + enderecoIP + ":3306/WsqcXz6l4e?autoReconnect=true&useSSL=false",
+                    "WsqcXz6l4e","zbUBV2UeNU"); // Banco: CRM_MeuBanco login: postgres | password: Batata2020
+            //System.out.println("Conectado."); // Retorno de teste de conexão
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+            System.out.println("Conexao falhou."); // Retorno de teste de conexão
+        }
+        return conexao;
+
+
+        // ******************************************** POSTGRESQL *****************************************************
+        /*
+        }
         try {
             conexao = DriverManager.getConnection("jdbc:postgresql://" + enderecoIP + ":5433/CRM_MeuBanco",
                     "postgres","Batata2020"); // Banco: CRM_MeuBanco login: postgres | password: Batata2020
@@ -14,19 +34,39 @@ public class SQLFuncao {
             throwables.printStackTrace();
             System.out.println("Conexao falhou."); // Retorno de teste de conexão
         }
-        return conexao;
+        return conexao;*/
+    }
+
+    public  static void ComandoZerarBanco (String enderecoIP) throws  SQLException{
+        try {
+            PreparedStatement select = BancoFuncao.TesteConexao(enderecoIP).prepareStatement("truncate " +
+                    "cadastro_mercadoria restart identity;");
+            select.execute();
+            System.out.println("Banco Zerado!");
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     public static void ComandoCadastrarSQL (String enderecoIP) throws SQLException {
         Mercadoria novoProduto = Mercadoria.Cadastrar();
         try {
             PreparedStatement select = BancoFuncao.TesteConexao(enderecoIP).prepareStatement("INSERT INTO " +
-                    "Cadastro_mercadoria(nome_mercadoria, medida_mercadoria, preco_mercadoria, " +
-                    "estoqueAtual_mercadoria) " + "VALUES ('" + novoProduto.nomeMercadoria + "','"
+                    "cadastro_mercadoria(nome_mercadoria, medida_mercadoria, preco_mercadoria, " +
+                    "estoqueatual_mercadoria) " + "VALUES ('" + novoProduto.nomeMercadoria + "','"
                     + novoProduto.medidaMercadoria + "'," + novoProduto.precoMercadoria + ","
                     + novoProduto.estoqueAtualMercadoria + " );");
             select.execute();
             System.out.println("Inserido");
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        // Cria ou atualiza o valor (dinheiro) em estoque da mercadoria.
+        try {
+            PreparedStatement select = BancoFuncao.TesteConexao(enderecoIP).prepareStatement("UPDATE " +
+                    "cadastro_mercadoria SET valoratual_movimentacao = estoqueatual_mercadoria * preco_mercadoria ");
+            select.execute();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -132,6 +172,16 @@ public class SQLFuncao {
             throwables.printStackTrace();
         }
 
+        // Cria ou atualiza o valor (dinheiro) em estoque da mercadoria.
+        try {
+            PreparedStatement select = BancoFuncao.TesteConexao(enderecoIP).prepareStatement("UPDATE " +
+                    "cadastro_mercadoria SET valoratual_movimentacao = estoqueatual_mercadoria * preco_mercadoria " +
+                    "WHERE codigo_mercadoria = " + codigoMercadoria + " ");
+            select.execute();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
         // Mostra detalhes da venda da mercadoria selecionada.
         try {
             PreparedStatement select = BancoFuncao.TesteConexao(enderecoIP).prepareStatement("SELECT * " +
@@ -155,8 +205,8 @@ public class SQLFuncao {
         // no banco de dados e geracao do relatorio.
         try {
             PreparedStatement select = BancoFuncao.TesteConexao(enderecoIP).prepareStatement("SELECT " +
-                    "SUM(preco_mercadoria) AS valoratual_movimentacao FROM cadastro_mercadoria " +
-                    "WHERE (estoqueatual_mercadoria > 0);");
+                    "SUM(valoratual_movimentacao) AS valoratual_movimentacao FROM cadastro_mercadoria WHERE " +
+                    "(estoqueatual_mercadoria > 0);");
             ResultSet resultado = select.executeQuery();
             while(resultado.next()){
                 novoProduto.valorEstoque = resultado.getFloat("valoratual_movimentacao");
@@ -180,7 +230,7 @@ public class SQLFuncao {
                     "COUNT(nome_mercadoria) AS mercadoria_cadastrada FROM cadastro_mercadoria;");
             ResultSet resultado = select.executeQuery();
             while(resultado.next()){
-                novoProduto.mercadoriaCadastrada = resultado.getInt("mercadoria_cadastrada");
+                novoProduto.qtdMercadoria = resultado.getInt("mercadoria_cadastrada");
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -190,8 +240,8 @@ public class SQLFuncao {
         try {
             PreparedStatement select = BancoFuncao.TesteConexao(enderecoIP).prepareStatement("INSERT INTO " +
                     "movimentacao_mercadoria (valoratual_movimentacao, volumeatual_movimentacao, " +
-                    "mercadoria_cadastrada) VALUES ("+ novoProduto.valorEstoque+", "+ novoProduto.volumeatualEstoque
-                    +", "+novoProduto.mercadoriaCadastrada+");");
+                    "mercadoria_cadastrada) VALUES (" + novoProduto.valorEstoque + ", " + novoProduto.volumeatualEstoque
+                    + ", " + novoProduto.qtdMercadoria + ");");
             select.execute();
         } catch (SQLException throwables) {
             throwables.printStackTrace();

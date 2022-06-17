@@ -9,8 +9,9 @@ public class BancoFuncao {
         System.out.println("1 - Vender");
         System.out.println("2 - Cadastrar Produtos");
         System.out.println("3 - Exibir Produtos");
-        System.out.println("4 - Gerar Relatorio de Estoque em dinheiro");
-        System.out.println("5 - Sair.");
+        System.out.println("4 - Gerar Relatorio de Movimentacao de Estoque");
+        System.out.println("5 - Zerar banco de dados");
+        System.out.println("6 - Sair");
         System.out.println("");
     }
 
@@ -47,5 +48,10 @@ public class BancoFuncao {
     // ********************************************** RELATORIOS *******************************************************
     public static void GerarRelatorio(String enderecoIP) throws SQLException {
         SQLFuncao.GerarRelatorio(enderecoIP);
+    }
+
+    // ******************************************** ZERA O BANCO *******************************************************
+    public static void ZerarBanco(String enderecoIP) throws SQLException {
+        SQLFuncao.ComandoZerarBanco(enderecoIP);
     }
 }

@@ -34,9 +34,9 @@ public class Mercadoria {
         novoProduto.precoMercadoria = resultado.getFloat("preco_mercadoria");
         novoProduto.medidaMercadoria = resultado.getString("medida_mercadoria");
         novoProduto.estoqueAtualMercadoria = resultado.getFloat("estoqueatual_mercadoria");
-        System.out.println("[COD-" + novoProduto.codigoMercadoria + "] - MERCADORIA: [" + novoProduto.nomeMercadoria
-                + "] [" + novoProduto.estoqueAtualMercadoria + " " + novoProduto.medidaMercadoria + "] PRECO: ["
-                + novoProduto.precoMercadoria + "R$] ");
+        System.out.println("[COD-" + novoProduto.codigoMercadoria + "] - MERCADORIA: [" + Espacamento.larguraLimite(novoProduto.nomeMercadoria)
+                + "] [ " + Espacamento.larguraLimiteEstoque(novoProduto.estoqueAtualMercadoria) + "  " + Espacamento.larguraLimiteMedida(novoProduto.medidaMercadoria) + " ] PRECO: ["
+                + Espacamento.larguraLimiteEstoque(novoProduto.precoMercadoria) + " R$] ");
     }
 
     public static void MostraNaTelaVenda(ResultSet resultado, int quantidade) throws SQLException {
@@ -63,9 +63,9 @@ public class Mercadoria {
         Estoque novoProduto = new Estoque();
         novoProduto.valorEstoque = resultado.getFloat("valoratual_movimentacao");
         novoProduto.volumeatualEstoque = resultado.getFloat("volumeatual_movimentacao");
-        novoProduto.mercadoriaCadastrada = resultado.getInt("mercadoria_cadastrada");
+        novoProduto.qtdMercadoria = resultado.getInt("mercadoria_cadastrada");
         System.out.println("Relatorio gerado em: " + formatter.format(date) + "\n\nVolume do Estoque: ["
                 + novoProduto.volumeatualEstoque + "] Valor em estoque: [" + novoProduto.valorEstoque +
-                "R$] Mercadorias Cadastradas: ["+ novoProduto.mercadoriaCadastrada +"]");
+                "R$] Mercadorias Cadastradas: ["+ novoProduto.qtdMercadoria +"]");
     }
 }

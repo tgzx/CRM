@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class SQLFuncao {
 
-    public  static void ComandoZerarBanco () throws  SQLException{
+    public  static void ComandoZerarBanco (){
         if(MainBanco.enderecoIP.equals("remotemysql.com")){
             ComandosSQL.truncate("TRUNCATE TABLE cadastro_mercadoria;");
         } else {
@@ -15,7 +15,7 @@ public class SQLFuncao {
         }
     }
     
-    public static void ComandoCadastrarSQL () throws SQLException {
+    public static void ComandoCadastrarSQL (){
         Mercadoria novoProduto = Mercadoria.Cadastrar();
         try {
             PreparedStatement select = BancoFuncao.TesteConexao().prepareStatement("INSERT INTO " +
@@ -39,7 +39,7 @@ public class SQLFuncao {
         }
     }
 
-    public static void ComandoOrdenarMercadoriasSQL(String ordemMercadorias) throws SQLException {
+    public static void ComandoOrdenarMercadoriasSQL(String ordemMercadorias){
         if (ordemMercadorias.equals("1")){
             ComandosSQL.select("SELECT * FROM cadastro_mercadoria ORDER BY codigo_mercadoria ASC;");
         } else if (ordemMercadorias.equals("2")){
@@ -51,7 +51,7 @@ public class SQLFuncao {
         }
     }
 
-    public static void ComandoVenderSQL () throws SQLException {
+    public static void ComandoVenderSQL (){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Digite o código da mercadoria: ");
         int codigoMercadoria = scanner.nextInt();
@@ -115,7 +115,7 @@ public class SQLFuncao {
         }
     }
 
-    public static void GerarRelatorio() throws SQLException {
+    public static void GerarRelatorio (){
         Estoque novoProduto = new Estoque();
 
         // Calcula e salva nas variaveis declaradas na classe Estoque os dados para a insercao

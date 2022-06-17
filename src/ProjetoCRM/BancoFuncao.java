@@ -28,8 +28,8 @@ public class BancoFuncao {
 
     // ******************************* ESTABELECE CONEXAO COM O BANCO DE DADOS *****************************************
     public static Connection TesteConexao() throws SQLException {
-       ConectDataBase.Conexao();
-        return ConectDataBase.Conexao();
+       connectDataBase.Conexao();
+        return connectDataBase.Conexao();
     }
 
     // ***************************** FUNCAO VENDA / MOSTRA PRECO / BAIXA ESTOQUE ***************************************

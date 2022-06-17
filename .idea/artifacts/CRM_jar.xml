@@ -3,11 +3,6 @@
     <output-path>$PROJECT_DIR$/out/artifacts/CRM_jar</output-path>
     <root id="archive" name="Project2CRM.jar">
       <element id="module-output" name="Project2CRM" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/kotlin-stdlib.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/kotlin-reflect.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/kotlin-test.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/kotlin-stdlib-jdk7.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/kotlin-stdlib-jdk8.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/postgresql-42.3.3.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/mysql-connector-java-5.1.49-bin.jar" path-in-jar="/" />
     </root>

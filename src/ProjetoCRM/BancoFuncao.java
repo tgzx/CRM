@@ -4,7 +4,9 @@ import java.sql.*;
 
 public class BancoFuncao {
 
+
     public static void Menu1(){
+
         System.out.println("O que deseja fazer agora?");
         System.out.println("1 - Vender");
         System.out.println("2 - Cadastrar Produtos");
@@ -25,33 +27,33 @@ public class BancoFuncao {
     }
 
     // ******************************* ESTABELECE CONEXAO COM O BANCO DE DADOS *****************************************
-    public static Connection TesteConexao(String enderecoIP) throws SQLException {
-        SQLFuncao.ComandoConectarBanco(enderecoIP);
-        return SQLFuncao.ComandoConectarBanco(enderecoIP);
+    public static Connection TesteConexao() throws SQLException {
+       ConectDataBase.Conexao();
+        return ConectDataBase.Conexao();
     }
 
     // ***************************** FUNCAO VENDA / MOSTRA PRECO / BAIXA ESTOQUE ***************************************
-    public static void Vender(String enderecoIP) throws SQLException {
-        SQLFuncao.ComandoVenderSQL(enderecoIP);
+    public static void Vender() throws SQLException {
+        SQLFuncao.ComandoVenderSQL();
     }
 
     // *************************************** LISTA MERCADORIAS NA TELA ***********************************************
-    public static void Consultar(String enderecoIP, String ordemMercadoria) throws SQLException {
-        SQLFuncao.ComandoOrdenarMercadoriasSQL(enderecoIP, ordemMercadoria);
+    public static void Consultar(String ordemMercadoria) throws SQLException {
+        SQLFuncao.ComandoOrdenarMercadoriasSQL(ordemMercadoria);
     }
 
     // **************************************** CADASTRO DE MERCADORIAS ************************************************
-    public static void Cadastrar(String enderecoIP) throws SQLException {
-        SQLFuncao.ComandoCadastrarSQL(enderecoIP);
+    public static void Cadastrar() throws SQLException {
+        SQLFuncao.ComandoCadastrarSQL();
     }
 
     // ********************************************** RELATORIOS *******************************************************
-    public static void GerarRelatorio(String enderecoIP) throws SQLException {
-        SQLFuncao.GerarRelatorio(enderecoIP);
+    public static void GerarRelatorio() throws SQLException {
+        SQLFuncao.GerarRelatorio();
     }
 
     // ******************************************** ZERA O BANCO *******************************************************
-    public static void ZerarBanco(String enderecoIP) throws SQLException {
-        SQLFuncao.ComandoZerarBanco(enderecoIP);
+    public static void ZerarBanco() throws SQLException {
+        SQLFuncao.ComandoZerarBanco();
     }
 }

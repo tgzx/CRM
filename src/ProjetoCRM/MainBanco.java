@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class MainBanco {
     // Endereco do servidor (SQL) [localhost ou ip] pode ser alterado em "pg_hba.conf" meu hamachi 25.38.77.29 /
     // meu IPV4 192.168.1.9 / meu IPV6 fe80::5e0:23f9:68fc:329d / MySQL: remotemysql.com
-    public static String enderecoIP = "192.168.1.9";
+    public static String enderecoIP = "remotemysql.com";
     public static void main(String[] args) throws SQLException {
         Scanner scanner = new Scanner(System.in);
         boolean loop = false;

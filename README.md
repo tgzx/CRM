@@ -1,4 +1,13 @@
-# CRM
+# DOWNLOAD
+## Baixe e faça um teste na sua própria máquina! O programa está sempre sendo atualizado.
+### Arquivos:
+#### Programa em JAVA: https://github.com/tgzx/CRM/raw/master/out/artifacts/CRM_jar/CRM.jar
+#### Executável: https://fs23.fex.net/download/4047442838
+
+OBS.: Coloque os 2 arquivos na mesma pasta e execute o "Executar.bat".
+Fique a vontade para dar sugestões e fazer críticas construtivas!
+
+# Projeto
 ### ProjetoCRM
 O projeto consiste em construir um programa "simples" em que seja possível gerir atividades básicas de uma empresa (cadastrar produtos, consultar produtos, vender, etc.) a partir de conceitos básicos de programação orientada a objetos nas linguagens JAVA e PostgreSQL.
 

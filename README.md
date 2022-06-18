@@ -7,7 +7,7 @@
 OBS.: Coloque os 2 arquivos na mesma pasta e execute o "Executar.bat".
 Fique a vontade para dar sugestões e fazer críticas construtivas!
 
-# Projeto
+# Projeto (Desatualizado | Veja o código atualizado em: SRC/ProjetoCRM)
 ### ProjetoCRM
 O projeto consiste em construir um programa "simples" em que seja possível gerir atividades básicas de uma empresa (cadastrar produtos, consultar produtos, vender, etc.) a partir de conceitos básicos de programação orientada a objetos nas linguagens JAVA e PostgreSQL.
 

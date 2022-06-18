@@ -2,7 +2,7 @@
 ## Baixe e faça um teste na sua própria máquina! O programa está sempre sendo atualizado.
 ### Arquivos:
 #### Programa em JAVA: https://github.com/tgzx/CRM/raw/master/out/artifacts/CRM_jar/CRM.jar
-#### Executável: https://fs23.fex.net/download/4047442838
+#### Executável: https://mega.nz/file/XiBxXRrC#2mr_TpG_6xdRyab2Jwn-2leG6Gdeoico2GEJirSvMEQ
 
 OBS.: Coloque os 2 arquivos na mesma pasta e execute o "Executar.bat".
 Fique a vontade para dar sugestões e fazer críticas construtivas!

@@ -12,31 +12,40 @@ public class MainBanco {
         boolean loop = false;
 
         while (!loop){
-            BancoFuncao.Menu1();
+            BaseFunctions.Menu1();
             String respostaMenu1 = scanner.next(); System.out.println();
             if (respostaMenu1.equals("1")){
-                BancoFuncao.Vender();
+                BaseFunctions.Vender();
             } else if (respostaMenu1.equals("2")){
-                BancoFuncao.Cadastrar();
+                BaseFunctions.Cadastrar();
             } else if (respostaMenu1.equals("3")){
-                BancoFuncao.Menu2();
+                BaseFunctions.Menu2();
                 String respostaMenu2 = scanner.next();
                 if (respostaMenu2.equals("1")){
-                    BancoFuncao.Consultar(respostaMenu2);
+                    BaseFunctions.Listar(respostaMenu2);
                 } else if (respostaMenu2.equals("2")){
-                    BancoFuncao.Consultar(respostaMenu2);
+                    BaseFunctions.Listar(respostaMenu2);
                 } else if (respostaMenu2.equals("3")){
-                    BancoFuncao.Consultar(respostaMenu2);
-                } else {
-                    BancoFuncao.Consultar(respostaMenu2);
+                    BaseFunctions.Listar(respostaMenu2);
+                } else if (respostaMenu2.equals("4")){
+                    BaseFunctions.Listar(respostaMenu2);
                 }
                 loop = false;
             } else if (respostaMenu1.equals("4")){
-                BancoFuncao.GerarRelatorio();
-            } else if (respostaMenu1.equals("5")){
-                BancoFuncao.ZerarBanco();
+                BaseFunctions.Menu3();
+                String respostaMenu3 = scanner.next();
+                if (respostaMenu3.equals("1")) {
+                    BaseFunctions.relatorioMovimentacao();
+                } else if (respostaMenu3.equals("2")){
+                    BaseFunctions.relatorioVenda();
+                }
+            }
+            else if (respostaMenu1.equals("5")) {
+                BaseFunctions.Atualizar();
+            }else if (respostaMenu1.equals("6")){
+                BaseFunctions.ZerarBanco();
                 loop = false;
-            } else if (respostaMenu1.equals("6")){
+            } else if (respostaMenu1.equals("7")){
                 loop = true;
             } else {
                 System.out.println("Selecione apenas uma das opcoes citadas.");

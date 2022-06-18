@@ -3,7 +3,7 @@ package ProjetoCRM;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-public class connectDataBase {
+public class ConnectSQL {
     public static Connection conexao = null;
     public static Connection Conexao() {
         if (conexao != null) {

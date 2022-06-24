@@ -1,7 +1,6 @@
 # Projeto CRM (Estático) - EM CONSTRUÇÃO
-## DOWNLOAD
 ## Baixe e faça um teste na sua própria máquina! O programa está sempre sendo atualizado.
-### Arquivos:
+### Links de download
 #### Programa em JAVA: https://github.com/tgzx/CRM/raw/master/out/artifacts/CRM_jar/CRM.jar
 #### Executável: https://mega.nz/file/XiBxXRrC#2mr_TpG_6xdRyab2Jwn-2leG6Gdeoico2GEJirSvMEQ
 

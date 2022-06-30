@@ -1,9 +1,26 @@
 package ProjetoCRM;
 
 import java.sql.*;
+import java.util.Scanner;
 
 public class BaseFunctions {
 
+
+    public static String MenuIP(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Selecione um banco para se conectar: ");
+        System.out.println("1 - PostgreSQL");
+        System.out.println("2 - MySQL");
+        System.out.println("");
+        int respostaMenuIP = scanner.nextInt(); System.out.println();
+        if (respostaMenuIP == 1){
+            MainBanco.enderecoIP = "201.131.164.97";
+        } else if (respostaMenuIP == 2){
+            MainBanco.enderecoIP = "remotemysql.com";
+        }
+        ConnectSQL.Conexao();
+        return MainBanco.enderecoIP;
+    }
 
     public static void Menu1(){
 
@@ -14,7 +31,8 @@ public class BaseFunctions {
         System.out.println("4 - Relatorios");
         System.out.println("5 - Atualizar cadastros");
         System.out.println("6 - Zerar banco de dados");
-        System.out.println("7 - Sair");
+        System.out.println("7 - Conectar-se a outro banco de dados");
+        System.out.println("8 - Sair");
         System.out.println("");
     }
 

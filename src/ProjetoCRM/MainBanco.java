@@ -5,11 +5,13 @@ import java.util.Scanner;
 
 public class MainBanco {
     // Endereco do servidor (SQL) [localhost ou ip] pode ser alterado em "pg_hba.conf" meu hamachi 25.38.77.29 /
-    // meu IPV4 192.168.1.9 / meu IPV6 fe80::5e0:23f9:68fc:329d / MySQL: remotemysql.com
-    public static String enderecoIP = "remotemysql.com";
+    // meu IPV4 192.168.1.9 / meu IPV6 201.131.164.97 / MySQL: remotemysql.com
+    public static String enderecoIP;
     public static void main(String[] args) throws SQLException {
         Scanner scanner = new Scanner(System.in);
         boolean loop = false;
+
+        BaseFunctions.MenuIP();
 
         while (!loop){
             BaseFunctions.Menu1();
@@ -46,6 +48,9 @@ public class MainBanco {
                 BaseFunctions.ZerarBanco();
                 loop = false;
             } else if (respostaMenu1.equals("7")){
+                ConnectSQL.conexao = null;
+                BaseFunctions.MenuIP();
+            } else if (respostaMenu1.equals("8")){
                 loop = true;
             } else {
                 System.out.println("Selecione apenas uma das opcoes citadas.");

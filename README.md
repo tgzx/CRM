@@ -17,7 +17,7 @@ Atestar meus conhecimentos nas linguagens citadas para a entrada no mercado de t
 ### Código
 Código principal reduzido aplicando algumas das boas práticas na programação: clean code e documentação. Utilizando-se de funções (classes) e métodos:
 
-```
+```java
 import java.util.Scanner;
 public class MainBanco {
     public static void main(String[] args) {
@@ -52,7 +52,7 @@ public class MainBanco {
 ### Função (Classe) e Métodos utilizados
 Abaixo construí os métodos que definem as ações que serão utilizadas pelo usuário no código principal (código acima):
 
-```
+```java
 import java.sql.*;
 import java.util.Scanner;
 
